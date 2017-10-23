@@ -1,0 +1,180 @@
+html, body {
+    height: 100%;
+    overflow: hidden;
+    min-height: 560px;
+    font-size: 12px;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.none {
+    display: none;
+}
+
+/**
+* fonts
+*/
+@font-face {
+    font-family: "iconfont";
+    src: url('fonts/iconfont.eot?t=1499329564970'); /* IE9*/
+    src: url('fonts/iconfont.eot?t=1499329564970#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('fonts/iconfont.woff?t=1499329564970') format('woff'), /* chrome, firefox */ url('fonts/iconfont.ttf?t=1499329564970') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/ url('fonts/iconfont.svg?t=1499329564970#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#container #head_wrap {
+    flex: 0 0 60px;
+    line-height: 60px;
+    padding-left: 20px;
+    font-size: 20px;
+    background-color: #333A4D;
+    color: #A2AAC1;
+}
+
+#container #main_wrap {
+    flex: 1 1 auto;
+    height: 100%;
+    position: relative;
+}
+
+#container #main_container {
+    height: 100%;
+    position: relative;
+    margin: 0 0 0 375px;
+    transition: margin .5s ease-in;
+    background-color: #f6f6f6;
+}
+
+#container #props_wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+}
+
+#container #props_wrap .props {
+    flex: 0 0 auto;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2E3940;
+    margin-left: 10px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+#container #props_wrap .props:nth-of-type(1) {
+    margin-left: 0;
+}
+
+#container #props_wrap .props .icon {
+    font-size: 30px;
+}
+
+#container #props_wrap .props .pup {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    height: 30px;
+    width: 40px;
+    line-height: 30px;
+    border-radius: 5px;
+    background-color: #2E3940;
+}
+
+#container #props_wrap .props:hover .pup {
+    opacity: 1;
+    transition: opacity 0.5s 0.25s;
+    top: -39px;
+    left: 0;
+}
+
+#container #props_wrap .props:hover .pup i {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #2E3940;
+    border: #2E3940 solid;
+    border-width: 0 1px 1px 0;
+    position: absolute;
+    left: 45%;
+    bottom: -3px;
+    transform: rotate(45deg);
+}
+
+#container #props_wrap .props.line:hover .pup {
+    left: -20px;
+    width: 80px;
+}
+
+#left_wrap {
+    width: 375px;
+    height: 100%;
+    padding-left: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #eaeaea;
+    transition: left .5s ease-in;
+    background-color: #fff;
+}
+
+#left_draw {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#left_draw .title {
+    font-size: 16px;
+    flex: 0 0 auto;
+    margin-top: 15px;
+}
+
+#left_draw .material-content {
+    flex: 1 1 auto;
+    margin-top: 15px;
+}
+
+#left_draw .material-content .box {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    margin: 0 17px 16px 0;
+    cursor: pointer;
+}
+
+#left_draw .material-content .box:hover .shape-obj {
+    border: 2px solid #58A3F3;
+}
+
+#left_draw .material-content .shape-obj {
+    flex: 1 1 auto;
+    width: 142px;
+    height: 142px;
+}
+
+#left_draw .material-content .box-info {
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 13px;
+}

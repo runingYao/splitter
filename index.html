@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>区域分割</title>
+    <link rel="stylesheet" href="common/css/base.css"/>
+    <link rel="stylesheet" href="common/css/index.css"/>
+    <script src="common/plug/jquery-1.11.3.min.js"></script>            <!--jquery-->
+</head>
+<body oncontextmenu="return false">
+<div id="container">
+    <div id="head_wrap">
+        <p>区域分割</p>
+    </div>
+    <div id="main_wrap">
+        <div id="left_wrap">
+            <div id="left_draw">
+                <div class="title">自由绘制</div>
+                <div class="material-content clearfix">
+                    <div class="box">
+                        <img src="common/images/division.png" class="shape-obj" data-type="division">
+                        <div class="box-info">区域分割线</div>
+                    </div>
+                    <div class="box">
+                        <img src="common/images/rectangle.png" class="shape-obj" data-type="rectangle">
+                        <div class="box-info">矩形区域</div>
+                    </div>
+                    <div class="box">
+                        <img src="common/images/circle.png" class="shape-obj" data-type="circle">
+                        <div class="box-info">圆形区域</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main_container">
+            <canvas id="canvas" width="400" height="400"></canvas>
+        </div>
+    </div>
+    
+    <div id="props_wrap">
+        <div class="props" data-type="division">
+            <i class="icon iconfont">&#xe62a;</i>
+            <i class="pup">拆分<i></i></i>
+        </div>
+        <div class="props line" data-type="straight">
+            <i class="icon iconfont none">&#xe634;</i>
+            <i class="icon iconfont">&#xe62b;</i>
+            <i class="pup">转为直线<i></i></i>
+        </div>
+        <div class="props" data-type="delete">
+            <i class="icon iconfont">&#xe63a;</i>
+            <i class="pup">删除<i></i></i>
+        </div>
+    </div>
+    
+</div>
+</body>
+
+<script src="lichen/geom/Angle.js"></script>
+<script src="lichen/geom/ArrayHelperClass.js"></script>
+<script src="lichen/geom/circleEdgeHelper.js"></script>
+<script src="lichen/geom/curveCornerHelperClass.js"></script>
+<script src="lichen/geom/edgePointHelperClass.js"></script>
+<script src="lichen/geom/Interval.js"></script>
+<script src="lichen/geom/lineRelationHelper.js"></script>
+<script src="lichen/geom/MyCircle.js"></script>
+<script src="lichen/geom/MyCurve.js"></script>
+<script src="lichen/geom/MyEdge.js"></script>
+<script src="lichen/geom/MyMap.js"></script>
+<script src="lichen/geom/MyMath.js"></script>
+<script src="lichen/geom/MyNumber.js"></script>
+<script src="lichen/geom/MyPath.js"></script>
+<script src="lichen/geom/MyPolygon.js"></script>
+<script src="lichen/geom/MyPolytree.js"></script>
+<script src="lichen/geom/MyRect.js"></script>
+<script src="lichen/geom/Vec2.js"></script>
+
+<script src="lichen/controller/curveAreaRelationshipHelper.js"></script>
+<script src="lichen/controller/CurveController.js"></script>
+<script src="lichen/controller/CurveRelationHelper_XX.js"></script>
+<script src="lichen/controller/CurveSplitClass.js"></script>
+<script src="lichen/controller/GeoHelpSomeClass.js"></script>
+<script src="lichen/controller/ID.js"></script>
+<script src="lichen/controller/MyArea.js"></script>
+<script src="lichen/controller/MyCorner.js"></script>
+<script src="lichen/controller/MyCornerBasic.js"></script>
+<script src="lichen/controller/SegmentController.js"></script>
+<script src="lichen/controller/someArcEdgeHelper_AEE.js"></script>
+<script src="lichen/controller/wallCurveCornerHelper.js"></script>
+<script src="lichen/controller/WallCurveOperation.js"></script>
+
+<script src="lichen/model/Analysis.js"></script>
+<script src="lichen/model/MyFloor.js"></script>
+<script src="lichen/model/Splitter.js"></script>
+<script src="lichen/model/Converter.js"></script>
+
+<script src="ui_controller/renderer.js"></script>
+<script src="ui_controller/canvas.js"></script>
+<script src="ui_controller/index.js"></script>
+</html>
