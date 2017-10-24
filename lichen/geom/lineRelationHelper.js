@@ -192,7 +192,10 @@ lineRelationHelper.isInterSect = function(param1, param2, param3, param4)
     switch(_loc5_.status)
     {
         case Line2DIntersectionStatus.SEGMENTS_INTERSECT:
-            return param3 || !(MyNumber.isZeroOrOrigin(_loc5_.mRatio1.mX) || MyNumber.isZeroOrOrigin(_loc5_.mRatio2.mX));
+            if (_loc5_.mRatio1.mX == 1 && _loc5_.mRatio2.mX == 1) {
+                return false;
+            }
+            return !(MyNumber.isZeroOrOrigin(_loc5_.mRatio1.mX) || MyNumber.isZeroOrOrigin(_loc5_.mRatio2.mX));
         case Line2DIntersectionStatus.OVERLAPPING:
             return param3 || !MyNumber.isEqual(_loc5_.mRatio1.mX,_loc5_.mRatio1.mY) || !MyNumber.isZeroOrOrigin(_loc5_.mRatio1.mX);
         default:

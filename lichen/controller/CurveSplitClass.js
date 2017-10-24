@@ -57,7 +57,6 @@ CurveSplitClass.prototype.execute = function()
         for (var j = 0; j < _loc2_.length; j++) {
             _loc1_ = _loc2_[j];
             
-            //!!!!!!!!!!!!!!!!
             if(_loc1_.isIntersectWith(_loc4_))
             {
                 this.invalidate();

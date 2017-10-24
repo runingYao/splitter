@@ -1,6 +1,9 @@
-function SegmentController(param1) {
+function SegmentController(param1, param2) {
     if (param1 == null || param1 == undefined) {
         param1 = null;
+    }
+    if (param2 == null || param2 == undefined) {
+        param2 = false;
     }
     //param1 = param1 || null;
     
@@ -10,6 +13,7 @@ function SegmentController(param1) {
     this.mWall = param1;
     //this.initialize();
     this.mId = ID.assignUniqueId();
+    this.isBoundry = param2;
 }
 
 SegmentController.prototype.wallDleleteSame = function(param1)
@@ -273,7 +277,7 @@ SegmentController.prototype.dispose = function()
         _loc3_.removeSpecificCurve_AH(this);
     }
          
-    if(this.mWall != null)
+    if(this.mWall != null && !this.isBoundry)
     {
         this.mWall.removeSpecificCurve_AH(this);
     }
