@@ -48,6 +48,8 @@ $(function () {
                 if (btnNum == 0) {
                     var areaPicked = canvas.getAreaPicked(event.offsetX, event.offsetY);
                     console.log(areaPicked);
+                    if(areaPicked)
+                    	drawArea(areaPicked);
                 }
             } else {
                 var clientWidth = parseInt($('#container').css('width'));

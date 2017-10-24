@@ -77,7 +77,7 @@ Splitter.prototype.getSubSegmentsSplitByCurves = function(param1, param2)
     
     for (var i = 0; i < record.length; i++) {
         if (record[i].length == 0) {
-            
+
             res.push(edges[i]);
         } else if (record[i].length == 1){
             res.push(new MyEdge(edges[i].mStart, record[i][0].point));
@@ -240,9 +240,28 @@ Splitter.prototype.splitMyEdgeIntoSegment = function(param1)
 {
     var _loc3_ = null;
     var _loc2_ = [];
+    /*
+    var edges;
+    if (this.mPolytree) {
+        edges = this.mPolytree.mOutLines.getEdges();
+    }
+    */
     for (var i = 0; i < param1.length; i++)
     {
         _loc3_ = SegmentController.createSegmentByMyEdge(param1[i]);
+        /*
+        if (!this.mPolytree) {
+            _loc3_.isBoundry = true;
+        } else {
+            for (var j = 0; j < edges.length; j++) {
+                if (edges[j].contains(param1[i])){
+                    _loc3_.isBoundry = true;
+                    break
+                }
+            }
+        }
+        */
+        
         _loc2_.push(_loc3_);
     }
     return _loc2_;
@@ -274,12 +293,39 @@ Splitter.prototype.execute = function() {
     } else if (_loc1_[0] instanceof MyEdge) {
         _loc2_ = this.splitMyEdgeIntoSegment(_loc1_);
     }
-    
+
     for (var i = 0; i < _loc2_.length; i++)
     {
         this.checkDupAdd(_loc2_[i].mStart);
         this.checkDupAdd(_loc2_[i].mEnd);
+
         this.mWall.addONE_PART(_loc2_[i]);
+        var a = 0;
+        a++;
     }
     
+    var edges;
+    if (this.mPolytree) {
+        edges = this.mPolytree.mOutLines.getEdges();
+    }
+    
+    for (var i = 0; i < this.mWall.mCurves.length; i++) {
+        var seg = this.mWall.mCurves[i];
+        if (seg instanceof SegmentController) {
+            if (!this.mPolytree) {
+                seg.isBoundry = true;
+            } else {
+                var e = seg.getTheStartEndEdge();
+                for (var j = 0; j < edges.length; j++) {
+                    if (edges[j].contains(e)){
+                        seg.isBoundry = true;
+                        break
+                    }
+                }
+            }
+        }
+        
+    }
+    
+        
 }
